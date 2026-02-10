@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVM'26 - Alpine Verification Meeting 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#participation">Participation</a></li>
+                <li><a href="#venue">Venue</a></li>
+                <li><a href="#registration">Registration</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>AVM'26</h1>
+            <p class="subtitle">Alpine Verification Meeting 2026</p>
+            <p class="date">22-24 September 2026 · Eger, Hungary</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About AVM</h2>
+                <p>
+                    The <strong><a href="https://avm.sosy-lab.org/index.php" target="_blank" rel="noopener">Alpine Verification Meeting (AVM)</a></strong> is an informal, annual workshop 
+                    series dedicated to formal verification. It brings together PhD students and researchers 
+                    primarily from the Alpine region and surrounding countries to discuss current challenges 
+                    and advances in the field.
+                </p>
+            </div>
+        </section>
+
+        <section id="participation" class="section section-alt">
+            <div class="container">
+                <h2>Call for Participation</h2>
+                <p>
+                    We invite researchers and PhD students working in formal verification and related 
+                    areas to participate in AVM'26. If you would like to give a talk, please 
+                    submit a tentative title and abstract to the organizers by <strong>August 2026</strong> (currently not yet open).
+                </p>
+            </div>
+        </section>
+
+        <section id="venue" class="section">
+            <div class="container">
+                <h2>Venue</h2>
+                <p>
+                    AVM'26 will be held in <strong>Eger, Hungary</strong>, a charming baroque city 
+                    known for its historic castle, thermal baths, and excellent wine region. Located 
+                    in the foothills of the Bükk Mountains in lieu of proper Alps, Eger offers a perfect 
+                    venue for AVM'26.
+                </p>
+                <div class="venue-details">
+                    <div class="venue-card">
+                        <h3>📍 Location</h3>
+                        <p>Eger, Hungary</p>
+                        <p class="note">Exact location TBA</p>
+                    </div>
+                    <div class="venue-card">
+                        <h3>📅 Date</h3>
+                        <p>22-24 September 2026</p>
+                        <p class="note">Plan to arrive on the 21st.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="registration" class="section section-alt">
+            <div class="container">
+                <h2>Registration</h2>
+                <div class="registration-notice">
+                    <p class="coming-soon">Registration Coming Soon</p>
+                    <p>
+                        Registration for AVM'26 will open in the coming months. 
+                        Please check back later for updates.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>
+                    For questions about AVM'26, please contact the organizer:
+                </p>
+                <p class="organizer">
+                    <strong>Levente Bajczi</strong><br>
+                    PhD student<br>
+                    <a href="https://ftsrg.mit.bme.hu" target="_blank" rel="noopener">Critical Systems Research Group</a>, BME-MIT<br>
+                    <a href="#" class="email" data-user="levente.bajczi" data-domain="edu.bme.hu" onclick="this.href='mailto:' + this.dataset.user + '@' + this.dataset.domain; return true;">
+                        <span class="email-text"></span>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Decode obfuscated emails on page load
+        document.querySelectorAll('.email').forEach(function(el) {
+            var email = el.dataset.user + '@' + el.dataset.domain;
+            el.querySelector('.email-text').textContent = email;
+        });
+    </script>
+
+    <footer>
+        <div class="container">
+            <p class="photo-credit">
+                Hero image: <a href="https://commons.wikimedia.org/wiki/File:Eger_2_2012.jpg" target="_blank" rel="noopener">"Eger, view from the Castle"</a> 
+                by <a href="https://commons.wikimedia.org/wiki/User:Ggolob" target="_blank" rel="noopener">Grzegorz Gołębiowski</a>, 
+                licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en" target="_blank" rel="noopener">CC BY-SA 3.0</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
