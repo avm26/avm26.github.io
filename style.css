@@ -71,8 +71,8 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(26, 95, 122, 0.85) 0%, rgba(87, 131, 123, 0.85) 100%),
-                url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Eger_2_2012.jpg');
+    background: linear-gradient(135deg, rgba(26, 95, 122, 0.5) 0%, rgba(87, 131, 123, 0.5) 100%),
+                url('DSC00415a.JPG');
     background-size: cover;
     background-position: center;
     color: var(--color-white);
