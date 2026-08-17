@@ -229,10 +229,10 @@ nav a:hover {
 .registration-notice {
     background-color: var(--color-white);
     border-radius: 8px;
-    padding: 3rem;
+    padding: 2.5rem;
     text-align: center;
     box-shadow: var(--shadow);
-    max-width: 500px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -241,6 +241,76 @@ nav a:hover {
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 1rem;
+}
+
+.registration-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.button-secondary {
+    background-color: var(--color-accent);
+}
+
+.registration-steps {
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+.registration-steps li {
+    padding: 0.25rem 0;
+}
+
+.fees {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 1rem;
+    max-width: 360px;
+    margin: 0 auto 1rem;
+}
+
+.fees div {
+    background-color: var(--color-background-alt);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.fees strong,
+.fees span {
+    display: block;
+}
+
+.fees span {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+}
+
+.registration-notice .note {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
 }
 
 /* Contact */
@@ -292,24 +362,24 @@ footer .photo-credit a:hover {
     .hero h1 {
         font-size: 3.5rem;
     }
-    
+
     .hero .subtitle {
         font-size: 1.2rem;
     }
-    
+
     nav ul {
         gap: 1rem;
     }
-    
+
     nav a {
         font-size: 0.85rem;
         padding: 0.4rem 0.8rem;
     }
-    
+
     .section {
         padding: 3rem 0;
     }
-    
+
     .section h2 {
         font-size: 2rem;
     }
@@ -319,13 +389,29 @@ footer .photo-credit a:hover {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .container {
         padding: 0 1rem;
+    }
+
+    .registration-notice {
+        padding: 2rem 1rem;
+    }
+
+    .registration-actions {
+        flex-direction: column;
+    }
+
+    .fees {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        width: 100%;
     }
 }
