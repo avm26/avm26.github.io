@@ -403,8 +403,64 @@ footer .photo-credit a:hover {
     text-decoration-style: solid;
 }
 
+/* Footer layout */
+footer .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem 2rem;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+footer .sponsors {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+footer .sponsors-label {
+    margin: 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+footer .sponsor-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+footer .sponsor-logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+footer .sponsor-logo img {
+    display: block;
+    width: auto;
+    height: 60px;
+}
+
+footer .photo-credit {
+    margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    footer .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
     .hero h1 {
         font-size: 3.5rem;
     }
