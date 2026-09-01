@@ -9,6 +9,8 @@
     --color-primary: #1a5f7a;
     --color-primary-dark: #134b61;
     --color-accent: #57837b;
+    --color-alert: #d71920;
+    --color-alert-bg: #fff0f0;
     --color-background: #fafafa;
     --color-background-alt: #f0f4f3;
     --color-text: #333333;
@@ -287,6 +289,30 @@ nav a:hover {
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 1rem;
+}
+
+.deadline-alert {
+    max-width: none;
+    color: var(--color-alert);
+    background-color: var(--color-alert-bg);
+    border: 2px solid var(--color-alert);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+
+.old-deadline,
+.new-deadline {
+    display: block;
+}
+
+.old-deadline {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    text-decoration: line-through;
+}
+
+.new-deadline {
+    margin-top: 0.35rem;
 }
 
 .registration-actions {
