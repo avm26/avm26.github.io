@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof assistant-based formalisation of Core Erlang - AVM'26</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="../index.html#about">About</a></li><li><a href="../index.html#participation">Participation</a></li><li><a href="../program.html">Program</a></li><li><a href="../index.html#venue">Venue</a></li><li><a href="../index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="../program.html">&larr; Back to program</a>
+<h1>Proof assistant-based formalisation of Core Erlang</h1>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container talk-page">
+<p class="talk-meta"><span class="len-badge">30 min talk</span> · Thursday, 9:15-9:45 · Software Verification and Formalisation · Chair: Oszkár Semeráth</p>
+<h2>Presenter</h2>
+<p>Péter Bereczky<br><em>Eötvös Loránd University, Faculty of Informatics</em></p>
+<h2>Authors</h2>
+<p>Péter Bereczky</p>
+<h2>Abstract</h2>
+<p>Refactoring tools are essential for software maintenance, yet they are rarely formally verified-causing developers to rely on manual transformations due to a lack of trust. This issue served as the motivation for our research over recent years: a machine-checked formalisation of Core Erlang, the sublanguage of Erlang, which is an impure functional programming language featuring strict evaluation, uncurried function abstractions, lightweight processes, and asynchronous communication. By using a formal semantics of Core Erlang and suitable program equivalence definitions, we can prove that a refactoring is correct if the programs before and after transformation are equivalent (i.e. they behave the same way).</p>
+<p>This talk presents key results from our work: a reduction-style formal semantics for both the sequential features and a representative concurrent subset of Core Erlang, along with multiple semantics-based program equivalence concepts. We discuss how these equivalence definitions-including barbed bisimulation for concurrent setups-were successfully applied to verify the correctness of program refactorings and optimisations. Finally, we highlight our experiences and insights from machine-checking these formal definitions, equivalences, and proofs in the Rocq proof assistant. Beyond proving behaviour preservation, this formal framework also serves as the foundation for our current research: building a formally verified Erlang compiler.</p>
+<h2>Slides</h2>
+<p>TBA</p>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 · Alpine Verification Meeting · 22-24 September 2026 · Eger, Hungary</p></div></footer>
+</body>
+</html>

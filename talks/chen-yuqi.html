@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explainability and Verifiability of Artificial Intelligence in ICU Mortality Prediction - AVM'26</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="../index.html#about">About</a></li><li><a href="../index.html#participation">Participation</a></li><li><a href="../program.html">Program</a></li><li><a href="../index.html#venue">Venue</a></li><li><a href="../index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="../program.html">&larr; Back to program</a>
+<h1>Explainability and Verifiability of Artificial Intelligence in ICU Mortality Prediction</h1>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container talk-page">
+<p class="talk-meta"><span class="len-badge">30 min talk</span> · Tuesday, 9:30-10:00 · AI and Networked Systems · Chair: Zoltán Micskei</p>
+<h2>Presenter</h2>
+<p>Chen Yuqi<br><em>Eszterházy Károly Catholic University</em></p>
+<h2>Authors</h2>
+<p>Chen Yuqi and Kovásznai Gergely</p>
+<h2>Abstract</h2>
+<p>A high area under the receiver operating characteristic curve (AUROC) certifies only discrimination; it says nothing about whether an intensive care unit (ICU) mortality model is calibrated, whether its features behave in clinically plausible directions, whether its explanations are stable, or whether it generalizes across hospitals. We argue that such a model should not be trusted until it is verified along these independent axes, and we present an explainability-and-verifiability framework that operationalizes this principle. The framework couples an XGBoost-multilayer perceptron (MLP) soft-voting ensemble, trained on MIMIC-IV (50,920 adult ICU stays, 10.23% in-hospital mortality; 58 features spanning age, seven vital signs, and twelve laboratory measurements, each summarized by mean, minimum, and maximum), with five complementary verification experiments-monotonicity scanning, perturbation robustness, subgroup fairness, explanation stability, and cross-model explanation consistency-delivered at the bedside through a Streamlit-based clinical decision-support (CDSS) prototype. Verification exposes two problems that the model's AUROC of 0.888 conceals, and for each we contribute a diagnostic or repair rather than a single pass/fail verdict. First, only six of sixteen features with an established clinical monotonic prior behaved monotonically; because a binary monotonicity result is not actionable, we introduce a five-segment risk-decomposition A/B/C diagnosis that sorts each of the ten violations into a candidate treatment-confounded reversal (five features), a clinically genuine non-monotonic shape (mean SpO2, a U-shaped curve), a low-importance and low-sensitivity violation (one C-moderate feature), or an unresolved "investigate" case (three features). Second, because soft-voting averages rather than cancels systematic component bias, component-level Platt scaling on the XGBoost branch reduced the expected calibration error (ECE) from 0.090 to 0.006 internally and, under strict external validation on eICU-CRD (138,868 stays, 9.46% mortality), from 0.167 to 0.045, with Brier scores improving in parallel while AUROC held at 0.856. Across these experiments we find that AUROC and ECE degrade asynchronously under distribution shift and that explanations are only moderately stable (top-three SHAP stability 52.3%), reinforcing our central claim: discrimination, calibration, monotonicity, and explanation stability must be verified jointly, not inferred from any single headline metric.</p>
+<h2>Slides</h2>
+<p>TBA</p>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 · Alpine Verification Meeting · 22-24 September 2026 · Eger, Hungary</p></div></footer>
+</body>
+</html>

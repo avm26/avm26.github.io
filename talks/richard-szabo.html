@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synthesizing Environment Assumptions for Coordinated Components - AVM'26</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="../index.html#about">About</a></li><li><a href="../index.html#participation">Participation</a></li><li><a href="../program.html">Program</a></li><li><a href="../index.html#venue">Venue</a></li><li><a href="../index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="../program.html">&larr; Back to program</a>
+<h1>Synthesizing Environment Assumptions for Coordinated Components</h1>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container talk-page">
+<p class="talk-meta"><span class="len-badge">30 min talk</span> · Tuesday, 15:45-16:15 · Embedded- and Real-Time Systems · Chair: Levente Bajczi</p>
+<h2>Presenter</h2>
+<p>Richárd Szabó<br><em>BME, Budapest</em></p>
+<h2>Authors</h2>
+<p>Richárd Szabó</p>
+<h2>Abstract</h2>
+<p>The formal verification of safety-critical systems requires not only a model of the system under design but also a set of environmental assumptions, i.e., a description of what the environment of the system can and cannot do. In engineering practice, however, these assumptions typically remain implicit "mental" models of the engineers, and as a result, model checking an otherwise correct design against an unconstrained environment often yields violation traces that are deemed unrealistic by engineers. Making these assumptions explicit is therefore an essential part of the verification process, which is usually done by manually creating environment models.</p>
+<p>Our approach builds on the coordination automata formalism, which describes the scheduling and the interaction of the components of a distributed system. In addition, the coordination automata can also express what is assumed of the environment and what is asserted of the executed component at each step, which makes modeling environmental assumptions possible. However, it remains the task of the engineer to formulate these assumptions, which is a challenging problem in itself: an assumption that is too strong potentially hides the very failures the system is designed to tolerate, whereas one that is too weak may not be sufficient to guarantee the assertion.</p>
+<p>In this talk, we present a symbolic adaptation of the environment assumption synthesis of Chatterjee, Henzinger and Jobstmann (CONCUR 2008) for synthesizing parts of the environment model from LTL formulas describing what is assumed of the environment and asserted from the executed component. We demonstrate the applicability of our approach on the Road Wheel Actuator (RWA) of a steer-by-wire system.</p>
+<h2>Slides</h2>
+<p>TBA</p>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 · Alpine Verification Meeting · 22-24 September 2026 · Eger, Hungary</p></div></footer>
+</body>
+</html>

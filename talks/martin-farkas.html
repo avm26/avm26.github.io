@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soundness Is Not Security: Layered Verification of BPMN Collaborations with the Tamarin Prover - AVM'26</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="../index.html#about">About</a></li><li><a href="../index.html#participation">Participation</a></li><li><a href="../program.html">Program</a></li><li><a href="../index.html#venue">Venue</a></li><li><a href="../index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="../program.html">&larr; Back to program</a>
+<h1>Soundness Is Not Security: Layered Verification of BPMN Collaborations with the Tamarin Prover</h1>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container talk-page">
+<p class="talk-meta"><span class="len-badge tut">Tutorial</span> · Tuesday, 14:00-15:00 · Chair: Zsófia Ádám</p>
+<h2>Presenter</h2>
+<p>Martin Farkas<br><em>BME, Budapest</em></p>
+<h2>Authors</h2>
+<p>Martin Farkas, Dr. Imre Kocsis</p>
+<h2>Abstract</h2>
+<p>A BPMN collaboration is a model of a business process performed by several organizations. Traditional verification of such models tends to focus on traces in which every participant plays by the rules laid out by the standard BPMN semantics. Our goal is to extend the analysis to scenarios where adversaries also participate. A dishonest procurement coordinator, for instance, may decide to award a contract to two different suppliers simultaneously instead of one, to hedge its own supply chain risk. Standard semantics rule out this trace, so existing verification tooling does not even look for it. On a platform that merely authenticates messages this scheme is executable. This gap is not specific to BPMN. Whatever a checker proves about a multi-party model holds only for runs in which every party keeps to the model.</p>
+<p>In this tutorial, we reason about those traces with Tamarin, a prover used to verify security protocols. The BPMN process is encoded as a Tamarin theory through the correspondence between place/transition nets, the usual semantics of BPMN, and multiset rewriting, the language of Tamarin. In that encoding, a dishonest participant is a rewriting rule set that may emit any message the platform accepts, not just the ones allowed by the process. The model has two layers: the process, and the platform that carries the messages between participants. Swapping either layer lets us test one process over a range of orchestration platforms, and one platform against many processes. The takeaways are the prover, its Petri-net reading, and a question worth asking of any multi-party model: what does its verification results quantify over, and where could it be broken? A 20-minute take-home exercise with a Docker image has attendees write one platform layer themselves, predict which of the collaboration's security properties survive, then run the prover. No prior exposure to Tamarin or BPMN is assumed.</p>
+<h2>Slides</h2>
+<p>TBA</p>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 · Alpine Verification Meeting · 22-24 September 2026 · Eger, Hungary</p></div></footer>
+</body>
+</html>

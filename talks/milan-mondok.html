@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bringing Saturation to Concurrent Software - AVM'26</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="../index.html#about">About</a></li><li><a href="../index.html#participation">Participation</a></li><li><a href="../program.html">Program</a></li><li><a href="../index.html#venue">Venue</a></li><li><a href="../index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="../program.html">&larr; Back to program</a>
+<h1>Bringing Saturation to Concurrent Software</h1>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container talk-page">
+<p class="talk-meta"><span class="len-badge">30 min talk</span> · Wednesday, 9:15-9:45 · Model Checking and Exchange Formats · Chair: Dirk Beyer</p>
+<h2>Presenter</h2>
+<p>Milán Mondok<br><em>BME, Budapest</em></p>
+<h2>Authors</h2>
+<p>Milán Mondok, Vince Molnár</p>
+<h2>Abstract</h2>
+<p>Saturation is a symbolic reachability algorithm for asynchronous systems. It works well because transitions in such systems are mostly local: each event reads and writes only a few variables, and saturation iterates along that structure instead of applying the whole transition relation at every step. Until now, this has been limited to models with explicit or limited next-state relations, mainly Petri nets. Software models, where transitions are given as logical formulas, are usually checked with SMT-based methods (BMC, CEGAR, ...) that do not use locality.</p>
+<p>This talk is about bringing saturation to a much wider set of domains: any transition system that can be described using SMT formulas. Substitution diagrams (presented in an earlier AVM talk) let saturation take SMT predicates as its next-state relation. Substitution diagrams lazily enumerate a decision-diagram-like structure using SMT queries during exploration. One problem comes up that does not exist for Petri nets: successor values at one level can depend on variables at lower levels, and the recursion may not terminate. We handle this with look-ahead, which uses the state set explored so far to bound the iteration.</p>
+<p>The approach is implemented in Theta. We evaluated it on Petri nets, DVE models, and concurrent C programs. For concurrent C, we are competitive with partial-order CEGAR. On Petri nets and DVE, a constant-factor overhead separates us from dedicated saturation engines.</p>
+<h2>Slides</h2>
+<p>TBA</p>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 · Alpine Verification Meeting · 22-24 September 2026 · Eger, Hungary</p></div></footer>
+</body>
+</html>
