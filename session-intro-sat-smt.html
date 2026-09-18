@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAT/SMT - AVM'26</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#participation">Participation</a></li><li><a href="program.html">Program</a></li><li><a href="index.html#venue">Venue</a></li><li><a href="index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="program.html">&larr; Back to program</a>
+<h1>SAT/SMT</h1>
+<p class="subtitle">Session introduction &middot; Wednesday, 15:30-17:00 &middot; Chair: Dirk Beyer</p>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container intro-page">
+<p>Most verification tools do not reason by hand. They translate a question into a logical formula and hand it to a solver, and this session is about those solvers. The starting point is <em>Boolean satisfiability</em>, or <em>SAT</em>: given a formula built from true/false variables, is there an assignment that makes the whole formula true? SAT was the first problem proved NP-complete, so it can be very hard in the worst case, yet it is the building block for everything else here [1]. Even so, modern SAT solvers handle large formulas well, using a search method called <em>conflict-driven clause learning (CDCL)</em> that learns from each dead end to prune the remaining search [2]. Some applications need not one solution but all of them, a task called <em>AllSAT</em>, or model enumeration. The textbook approach adds a <em>blocking clause</em> to rule out each solution once it is found, but that is costly, so recent work instead lets the enumerator plug into the solver through an interface called <em>IPASIR-UP</em> [3].</p>
+
+<p>SAT only knows plain true/false variables, so on its own it cannot talk about numbers, arrays, or other data. <em>Satisfiability modulo theories</em>, or <em>SMT</em>, closes that gap: it keeps the SAT search but adds background theories that fix the meaning of extra symbols, such as integers or arrays [4]. SMT solvers are the workhorse backend of many verification tools [5]. For each theory, a <em>decision procedure</em> determines whether a set of constraints in that theory can be satisfied, and whether such a procedure can exist at all, its <em>decidability</em>, is the central question [6]. There is also an asymmetry between the two answers. Showing that a formula is unsatisfiable often has a compact proof, but showing that it is satisfiable usually means exhibiting a model, which can be very large or, for some theories, impossible to build directly. One response is to certify satisfiability with an inductive argument that a model exists, instead of constructing it outright.</p>
+
+<p>The talks put several such theories to work. <em>Uninterpreted functions</em> are functions with no fixed meaning, constrained only by the rule that equal inputs give equal outputs. Combined with <em>universal quantifiers</em>, which are claims that must hold for all values, they become undecidable in general [6]. <em>Linear integer arithmetic (LIA)</em> is a central decidable theory of constraints over the integers, and one line of work extends it with sums over sets of values. The <em>theory of arrays</em> models reading and writing indexed memory, and it too can be extended, here with summation over an array [7]. <em>Strings</em> form another rich theory: constraints over text, such as equalities, lengths, and pattern or replace operations, which matter in security and program analysis [8]. Modern string solvers are often <em>automata-based</em>, using <em>finite automata</em> to describe sets of strings and <em>transducers</em> to describe relations between strings, such as replacing one substring with another [9].</p>
+
+<p class="intro-keywords"><strong>Keywords to look up:</strong> Boolean satisfiability (SAT) &middot; NP-complete &middot; CDCL &middot; SAT solver &middot; AllSAT / model enumeration &middot; blocking clause &middot; satisfiability modulo theories (SMT) &middot; theory &middot; decision procedure &middot; decidability &middot; uninterpreted function &middot; quantifier &middot; linear integer arithmetic (LIA) &middot; theory of arrays &middot; satisfiability certificate &middot; string solving &middot; finite automaton &middot; transducer.</p>
+
+<h2>Sources</h2>
+<ol class="intro-sources">
+<li>S. A. Cook. "The Complexity of Theorem-Proving Procedures." <em>STOC</em>, 1971. <a href="https://doi.org/10.1145/800157.805047" target="_blank" rel="noopener">doi.org/10.1145/800157.805047</a></li>
+<li>J. P. Marques-Silva, K. A. Sakallah. "GRASP: A Search Algorithm for Propositional Satisfiability." <em>IEEE Trans. Computers</em>, 1999. <a href="https://doi.org/10.1109/12.769433" target="_blank" rel="noopener">doi.org/10.1109/12.769433</a></li>
+<li>K. Fazekas, A. Niemetz, M. Preiner, M. Kirchweger, S. Szeider, A. Biere. "IPASIR-UP: User Propagators for CDCL." <em>SAT</em>, 2023. <a href="https://doi.org/10.4230/LIPIcs.SAT.2023.8" target="_blank" rel="noopener">doi.org/10.4230/LIPIcs.SAT.2023.8</a></li>
+<li>C. Barrett, C. Tinelli. "Satisfiability Modulo Theories." In <em>Handbook of Model Checking</em>, Springer, 2018. <a href="https://doi.org/10.1007/978-3-319-10575-8_11" target="_blank" rel="noopener">doi.org/10.1007/978-3-319-10575-8_11</a></li>
+<li>L. de Moura, N. Bjørner. "Z3: An Efficient SMT Solver." <em>TACAS</em>, 2008. <a href="https://doi.org/10.1007/978-3-540-78800-3_24" target="_blank" rel="noopener">doi.org/10.1007/978-3-540-78800-3_24</a></li>
+<li>D. Kroening, O. Strichman. <em>Decision Procedures: An Algorithmic Point of View.</em> Springer, 2nd ed., 2016. <a href="https://doi.org/10.1007/978-3-662-50497-0" target="_blank" rel="noopener">doi.org/10.1007/978-3-662-50497-0</a></li>
+<li>A. R. Bradley, Z. Manna, H. B. Sipma. "What's Decidable About Arrays?" <em>VMCAI</em>, 2006. <a href="https://doi.org/10.1007/11609773_28" target="_blank" rel="noopener">doi.org/10.1007/11609773_28</a></li>
+<li>R. Amadini. "A Survey on String Constraint Solving." <em>ACM Computing Surveys</em>, 2021. <a href="https://doi.org/10.1145/3484198" target="_blank" rel="noopener">doi.org/10.1145/3484198</a></li>
+<li>J. E. Hopcroft, R. Motwani, J. D. Ullman. <em>Introduction to Automata Theory, Languages, and Computation.</em> Addison-Wesley, 3rd ed., 2006. ISBN 978-0-321-45536-9.</li>
+</ol>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 &middot; Alpine Verification Meeting &middot; 22-24 September 2026 &middot; Eger, Hungary</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Verification and Formalisation - AVM'26</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#participation">Participation</a></li><li><a href="program.html">Program</a></li><li><a href="index.html#venue">Venue</a></li><li><a href="index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="program.html">&larr; Back to program</a>
+<h1>Software Verification and Formalisation</h1>
+<p class="subtitle">Session introduction &middot; Thursday, 09:00-10:30 &middot; Chair: Oszkár Semeráth</p>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container intro-page">
+<p><em>Formalisation</em> writes a system's meaning in precise mathematics, so that claims about it can be proved rather than argued. <em>Proof assistants</em>, such as Coq (recently renamed Rocq) and Isabelle, take this furthest, letting a person write the proof while the machine checks every step, which gives very high trust [1]. For a programming language, the thing being formalised is its <em>semantics</em>, a precise account of how its programs execute [2]. With a semantics in place, one can define when two programs are equivalent, often through <em>bisimulation</em>, and then prove that a refactoring or an optimising compiler preserves behaviour [3].</p>
+
+<p>Automata theory studies simple machines that recognise patterns. A <em>finite automaton</em> reads a string over a fixed, finite alphabet and either accepts or rejects it, and the languages it can recognise are the regular ones [4]. Many systems, though, handle data values from an unbounded domain, so <em>register automata</em> extend the model to an infinite alphabet by storing values in a few registers for later comparison [5]. This extra power has a cost: some questions that are easy for finite automata become hard, or even undecidable. A key example is the <em>universality</em> problem, which asks whether an automaton accepts every possible word, and which is closely tied to complementing its language [6]. For these richer automata universality is undecidable in general, yet it can become decidable once the model is suitably restricted.</p>
+
+<p>Model checkers are automatic tools that explore a system's reachable states. Concurrent software is difficult for them, because its threads can interleave in enormous numbers of orders, a classic source of state-space explosion. <em>Partial order reduction (POR)</em> tackles this by exploring only one representative of each set of equivalent interleavings, using the fact that independent actions commute [7]. <em>Abstraction</em> addresses the same explosion from another side, by dropping detail while keeping enough to decide the property, and making abstraction and POR cooperate soundly is a real challenge [8]. Hardware verification faces its own pressures, and a common route is to translate a design into a standard format and hand it to a backend solver [9]. Because each domain grows its techniques around its own bottlenecks, comparing them, or carrying an algorithm from one domain to another, is rarely straightforward.</p>
+
+<p class="intro-keywords"><strong>Keywords to look up:</strong> formalisation &middot; formal semantics &middot; proof assistant (Coq/Rocq) &middot; machine-checked proof &middot; program equivalence &middot; bisimulation &middot; verified compiler &middot; finite automaton &middot; regular language &middot; infinite alphabet / register automaton &middot; universality &middot; complementation &middot; decidability &middot; concurrency &middot; interleaving &middot; state-space explosion &middot; partial order reduction (POR) &middot; abstraction &middot; hardware model checking &middot; encoding / exchange format.</p>
+
+<h2>Sources</h2>
+<ol class="intro-sources">
+<li>Y. Bertot, P. Castéran. <em>Interactive Theorem Proving and Program Development (Coq'Art).</em> Springer, 2004. <a href="https://doi.org/10.1007/978-3-662-07964-5" target="_blank" rel="noopener">doi.org/10.1007/978-3-662-07964-5</a></li>
+<li>G. Winskel. <em>The Formal Semantics of Programming Languages.</em> MIT Press, 1993. ISBN 978-0-262-23169-5.</li>
+<li>D. Sangiorgi. <em>Introduction to Bisimulation and Coinduction.</em> Cambridge University Press, 2011. <a href="https://doi.org/10.1017/CBO9780511777110" target="_blank" rel="noopener">doi.org/10.1017/CBO9780511777110</a></li>
+<li>J. E. Hopcroft, R. Motwani, J. D. Ullman. <em>Introduction to Automata Theory, Languages, and Computation.</em> Addison-Wesley, 3rd ed., 2006. ISBN 978-0-321-45536-9.</li>
+<li>M. Kaminski, N. Francez. "Finite-Memory Automata." <em>Theoretical Computer Science</em>, 1994. <a href="https://doi.org/10.1016/0304-3975(94)90242-9" target="_blank" rel="noopener">doi.org/10.1016/0304-3975(94)90242-9</a></li>
+<li>L. Segoufin. "Automata and Logics for Words and Trees over an Infinite Alphabet." <em>CSL</em>, 2006. <a href="https://doi.org/10.1007/11874683_3" target="_blank" rel="noopener">doi.org/10.1007/11874683_3</a></li>
+<li>D. Peled. "All from One, One for All: On Model Checking Using Representatives." <em>CAV</em>, 1993. <a href="https://doi.org/10.1007/3-540-56922-7_34" target="_blank" rel="noopener">doi.org/10.1007/3-540-56922-7_34</a></li>
+<li>E. Clarke, O. Grumberg, S. Jha, Y. Lu, H. Veith. "Counterexample-Guided Abstraction Refinement for Symbolic Model Checking." <em>JACM</em>, 2003. <a href="https://doi.org/10.1145/876638.876643" target="_blank" rel="noopener">doi.org/10.1145/876638.876643</a></li>
+<li>A. Biere, A. Cimatti, E. Clarke, Y. Zhu. "Symbolic Model Checking without BDDs." <em>TACAS</em>, 1999. <a href="https://doi.org/10.1007/3-540-49059-0_14" target="_blank" rel="noopener">doi.org/10.1007/3-540-49059-0_14</a></li>
+</ol>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 &middot; Alpine Verification Meeting &middot; 22-24 September 2026 &middot; Eger, Hungary</p></div></footer>
+</body>
+</html>

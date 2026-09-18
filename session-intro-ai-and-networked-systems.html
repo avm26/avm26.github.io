@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI and Networked Systems - AVM'26</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#participation">Participation</a></li><li><a href="program.html">Program</a></li><li><a href="index.html#venue">Venue</a></li><li><a href="index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="program.html">&larr; Back to program</a>
+<h1>AI and Networked Systems</h1>
+<p class="subtitle">Session introduction &middot; Tuesday, 09:15-10:30 &middot; Chair: Zoltán Micskei</p>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container intro-page">
+<p>Machine learning builds a model by training it on data, not by writing a specification. That raises a question. Once the model exists, what can we prove about it? Testing measures accuracy on a sample of inputs, while formal verification asks whether a stated property holds for every input in some region [4]. The models here are <em>neural networks</em>, which pass inputs through layers of weighted connections to compute an output [1]. An <em>ensemble</em> runs several models on the same input, and <em>soft voting</em> combines them by averaging the probabilities they output. An ensemble with soft voting can raise accuracy and keep working if a single model fails [2]. A property of particular interest is <em>robustness</em>. A small, deliberate change to an input is called an <em>adversarial perturbation</em>, and a robust model does not let such a change flip its answer. <em>Formal robustness verification</em> tries to prove this for a whole region of inputs, not for sampled points alone [3, 4].</p>
+
+<p>A warning runs through this part of the session: a single headline score does not make a model trustworthy. Such a score, for example overall accuracy or the area under the receiver operating characteristic curve (AUROC), can look excellent while the model still fails in ways that matter in use. So verification also checks other properties. <em>Calibration</em> asks whether the predicted probabilities match how often things really happen. If a well-calibrated model says 80% on many cases, the predicted outcome should occur in about 80% of them, and the <em>expected calibration error (ECE)</em> measures the gap [5]. <em>Explainability</em> asks which input features drove a given prediction. Methods like <em>SHAP (SHapley Additive exPlanations)</em> give each feature a share of the result, and such explanations are only useful if they stay stable under small changes [6]. Two more properties are <em>monotonicity</em>, where raising a meaningful input should move the prediction in the expected direction, and <em>fairness</em>, where the model should not disadvantage protected groups [7]. The goal is to check these properties together, not to read trust off one number.</p>
+
+<p>The session's other strand keeps the goal of proving a property, but changes the object of study from a learned model to a <em>networked system</em>, that is, many processes that run in parallel and communicate by messages. One communication model is <em>broadcast</em>, where a sent message reaches all neighbours at once. Broadcast can be reliable, or unreliable if messages may be lost [10]. The basic question is one of <em>safety</em>, also called <em>reachability</em>. Can any process ever reach an error state? Usually one wants that guarantee for a whole family of systems of every size, not one fixed instance, which is the aim of <em>parameterized verification</em> [8, 9]. <em>Graph grammars</em> give a compact, rule-based way to describe such families of network topologies [11]. A recurring theme is the line between <em>decidable</em> and <em>undecidable</em> problems. Some of these questions have no general algorithm, yet adding a restriction, such as message loss or a wait-only protocol, can restore decidability [9, 10].</p>
+
+<p class="intro-keywords"><strong>Keywords to look up:</strong> machine-learning verification &middot; neural network &middot; ensemble / soft voting &middot; adversarial robustness &middot; trustworthy AI &middot; calibration (ECE) &middot; explainable AI / SHAP &middot; monotonicity &middot; fairness &middot; distributed system &middot; broadcast communication &middot; safety / reachability &middot; parameterized verification &middot; graph grammar / graph transformation &middot; decidability &middot; undecidability.</p>
+
+<h2>Sources</h2>
+<ol class="intro-sources">
+<li>I. Goodfellow, Y. Bengio, A. Courville. <em>Deep Learning.</em> MIT Press, 2016. <a href="https://www.deeplearningbook.org/" target="_blank" rel="noopener">deeplearningbook.org</a></li>
+<li>T. G. Dietterich. "Ensemble Methods in Machine Learning." <em>MCS</em>, 2000. <a href="https://doi.org/10.1007/3-540-45014-9_1" target="_blank" rel="noopener">doi.org/10.1007/3-540-45014-9_1</a></li>
+<li>I. J. Goodfellow, J. Shlens, C. Szegedy. "Explaining and Harnessing Adversarial Examples." <em>ICLR</em>, 2015. <a href="https://arxiv.org/abs/1412.6572" target="_blank" rel="noopener">arxiv.org/abs/1412.6572</a></li>
+<li>G. Katz, C. Barrett, D. Dill, K. Julian, M. Kochenderfer. "Reluplex: An Efficient SMT Solver for Verifying Deep Neural Networks." <em>CAV</em>, 2017. <a href="https://doi.org/10.1007/978-3-319-63387-9_5" target="_blank" rel="noopener">doi.org/10.1007/978-3-319-63387-9_5</a></li>
+<li>C. Guo, G. Pleiss, Y. Sun, K. Q. Weinberger. "On Calibration of Modern Neural Networks." <em>ICML</em>, 2017. <a href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener">arxiv.org/abs/1706.04599</a></li>
+<li>S. M. Lundberg, S.-I. Lee. "A Unified Approach to Interpreting Model Predictions." <em>NeurIPS</em>, 2017. <a href="https://arxiv.org/abs/1705.07874" target="_blank" rel="noopener">arxiv.org/abs/1705.07874</a></li>
+<li>S. Barocas, M. Hardt, A. Narayanan. <em>Fairness and Machine Learning.</em> MIT Press, 2023. <a href="https://fairmlbook.org/" target="_blank" rel="noopener">fairmlbook.org</a></li>
+<li>S. M. German, A. P. Sistla. "Reasoning about Systems with Many Processes." <em>JACM</em>, 1992. <a href="https://doi.org/10.1145/146637.146681" target="_blank" rel="noopener">doi.org/10.1145/146637.146681</a></li>
+<li>R. Bloem, S. Jacobs, A. Khalimov, I. Konnov, S. Rubin, H. Veith, J. Widder. <em>Decidability of Parameterized Verification.</em> Morgan &amp; Claypool, 2015. <a href="https://doi.org/10.2200/S00658ED1V01Y201508DCT013" target="_blank" rel="noopener">doi.org/10.2200/S00658ED1V01Y201508DCT013</a></li>
+<li>G. Delzanno, A. Sangnier, G. Zavattaro. "Parameterized Verification of Ad Hoc Networks." <em>CONCUR</em>, 2010. <a href="https://doi.org/10.1007/978-3-642-15375-4_22" target="_blank" rel="noopener">doi.org/10.1007/978-3-642-15375-4_22</a></li>
+<li>H. Ehrig, K. Ehrig, U. Prange, G. Taentzer. <em>Fundamentals of Algebraic Graph Transformation.</em> Springer, 2006. <a href="https://doi.org/10.1007/3-540-31188-2" target="_blank" rel="noopener">doi.org/10.1007/3-540-31188-2</a></li>
+</ol>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 &middot; Alpine Verification Meeting &middot; 22-24 September 2026 &middot; Eger, Hungary</p></div></footer>
+</body>
+</html>

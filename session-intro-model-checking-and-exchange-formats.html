@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Checking and Exchange Formats - AVM'26</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#participation">Participation</a></li><li><a href="program.html">Program</a></li><li><a href="index.html#venue">Venue</a></li><li><a href="index.html#registration">Registration</a></li></ul></nav>
+<header class="page-header">
+<div class="container">
+<a class="back-link" href="program.html">&larr; Back to program</a>
+<h1>Model Checking and Exchange Formats</h1>
+<p class="subtitle">Session introduction &middot; Wednesday, 09:00-10:30 &middot; Chair: Dirk Beyer</p>
+</div>
+</header>
+<main>
+<section class="section">
+<div class="container intro-page">
+<p>Model checking is an automatic verification technique: a tool takes a model of a system and a property, then checks that property against every reachable state [1, 2]. This differs from testing, which only tries some runs, and from interactive proof, which needs a person to guide each step. Properties usually come in two kinds - a <em>safety</em> property says that a bad state is never reached, and a <em>liveness</em> property says that a good event happens eventually [1]. The central obstacle is the <em>state-space explosion problem</em>: the number of reachable states grows very fast with the number of variables and parallel components, so a plain search soon runs out of memory [1, 2]. Several methods in this session fight that explosion. Symbolic techniques store a whole set of states as one formula or one decision diagram instead of listing states individually, and <em>decision diagrams</em> are the classic structure for this [3]. <em>Saturation</em> is a state space exploration strategy tuned for asynchronous systems, where each event touches only a few variables, first developed on Petri nets [4]. A different route, SMT based techniques encodes the model as formulas and call an SMT solver, for example in <em>bounded model checking</em> [5, 6].</p>
+
+<p>Abstraction offers another way to shrink the state space: it deliberately drops detail while keeping enough information to decide the property [1]. <em>Counterexample-guided abstraction refinement (CEGAR)</em> automates this by starting coarse and adding detail only when a counterexample proves to be spurious [7]. What an abstraction currently tracks is its <em>precision</em>, and <em>precision reuse</em> carries that information from one program version to the next, so a changed program need not be re-verified from scratch [8]. Reuse of this kind is one case of <em>cooperative verification</em>, where separate tools help each other by exchanging artifacts [9]. For that exchange to work, tools need common formats. A <em>verification witness</em> is a machine-checkable record that justifies a verdict, so an independent validator can re-check the result - a correctness witness supports a "true" verdict, and a violation witness describes a counterexample [10]. These shared formats are driven in large part by <em>SV-COMP</em>, the annual competition on software verification [11], and other competitions, such as HWMCC (Hardware Model Checking Competition).</p>
+
+<p>The final theme is <em>termination</em>, the question of whether a program always halts, which is a common liveness property. No single algorithm can decide this for every program - this is the classical undecidability of the halting problem. In practice, a termination proof often relies on a <em>ranking function</em>, a quantity that strictly decreases at each step and cannot decrease forever, which forces the program to stop. <em>Transition invariants</em> are a more general argument of the same kind, and they can act as a termination witness that another tool is able to validate [12].</p>
+
+<p class="intro-keywords"><strong>Keywords to look up:</strong> model checking &middot; state-space explosion &middot; reachability analysis &middot; symbolic model checking &middot; BDD / decision diagram &middot; saturation &middot; Petri net &middot; SMT / SMT-LIB &middot; bounded model checking &middot; abstraction &middot; CEGAR &middot; precision reuse &middot; cooperative verification &middot; verification witness &middot; SV-COMP &middot; termination &middot; ranking function &middot; transition invariant.</p>
+
+<h2>Sources</h2>
+<ol class="intro-sources">
+<li>C. Baier, J.-P. Katoen. <em>Principles of Model Checking.</em> MIT Press, 2008. ISBN 978-0-262-02649-9.</li>
+<li>E. M. Clarke, T. A. Henzinger, H. Veith, R. Bloem (eds.). <em>Handbook of Model Checking.</em> Springer, 2018. <a href="https://doi.org/10.1007/978-3-319-10575-8" target="_blank" rel="noopener">doi.org/10.1007/978-3-319-10575-8</a></li>
+<li>R. E. Bryant. "Graph-Based Algorithms for Boolean Function Manipulation." <em>IEEE Trans. Computers</em>, 1986. <a href="https://doi.org/10.1109/TC.1986.1676819" target="_blank" rel="noopener">doi.org/10.1109/TC.1986.1676819</a></li>
+<li>G. Ciardo, G. Lüttgen, R. Siminiceanu. "Saturation: An Efficient Iteration Strategy for Symbolic State-Space Generation." <em>TACAS</em>, 2001. <a href="https://doi.org/10.1007/3-540-45319-9_23" target="_blank" rel="noopener">doi.org/10.1007/3-540-45319-9_23</a></li>
+<li>A. Biere, A. Cimatti, E. Clarke, Y. Zhu. "Symbolic Model Checking without BDDs." <em>TACAS</em>, 1999. <a href="https://doi.org/10.1007/3-540-49059-0_14" target="_blank" rel="noopener">doi.org/10.1007/3-540-49059-0_14</a></li>
+<li>C. Barrett, P. Fontaine, C. Tinelli. <em>The SMT-LIB Standard: Version 2.6.</em> 2017. <a href="https://smt-lib.org/" target="_blank" rel="noopener">smt-lib.org</a></li>
+<li>E. Clarke, O. Grumberg, S. Jha, Y. Lu, H. Veith. "Counterexample-Guided Abstraction Refinement for Symbolic Model Checking." <em>JACM</em>, 2003. <a href="https://doi.org/10.1145/876638.876643" target="_blank" rel="noopener">doi.org/10.1145/876638.876643</a></li>
+<li>D. Beyer, S. Löwe, E. Novikov, A. Stahlbauer, P. Wendler. "Precision Reuse for Efficient Regression Verification." <em>ESEC/FSE</em>, 2013. <a href="https://doi.org/10.1145/2491411.2491429" target="_blank" rel="noopener">doi.org/10.1145/2491411.2491429</a></li>
+<li>D. Beyer, H. Wehrheim. "Verification Artifacts in Cooperative Verification." <em>ISoLA</em>, 2020. <a href="https://doi.org/10.1007/978-3-030-61362-4_8" target="_blank" rel="noopener">doi.org/10.1007/978-3-030-61362-4_8</a></li>
+<li>D. Beyer, M. Dangl, D. Dietsch, M. Heizmann, A. Stahlbauer. "Witness Validation and Stepwise Testification across Software Verifiers." <em>ESEC/FSE</em>, 2015. <a href="https://doi.org/10.1145/2786805.2786867" target="_blank" rel="noopener">doi.org/10.1145/2786805.2786867</a></li>
+<li>D. Beyer. Competition on Software Verification (<em>SV-COMP</em>), annual reports, <em>TACAS</em>. <a href="https://sv-comp.sosy-lab.org/" target="_blank" rel="noopener">sv-comp.sosy-lab.org</a></li>
+<li>A. Podelski, A. Rybalchenko. "Transition Invariants." <em>LICS</em>, 2004. <a href="https://doi.org/10.1109/LICS.2004.1319598" target="_blank" rel="noopener">doi.org/10.1109/LICS.2004.1319598</a></li>
+</ol>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><p>AVM'26 &middot; Alpine Verification Meeting &middot; 22-24 September 2026 &middot; Eger, Hungary</p></div></footer>
+</body>
+</html>

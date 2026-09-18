@@ -587,10 +587,22 @@ table.schedule { width:100%; border-collapse:collapse; background:var(--color-wh
 .len-badge.inv { color:#6a3e8a; background:#ece0f5; }
 .len-badge.tut { color:#8a6d1a; background:#f3ebd2; }
 
+.schedule .session .s-intro { margin-top:0.4rem; font-size:0.8rem; }
+.schedule .session .s-intro a { color:var(--color-accent); text-decoration:none; font-weight:600; }
+.schedule .session .s-intro a:hover { text-decoration:underline; }
+
 .talk-page { max-width:760px; }
 .talk-page h2 { color:var(--color-primary); font-size:1.2rem; margin:1.75rem 0 0.4rem; text-align:left; }
 .talk-page p { text-align:left; max-width:none; margin-left:0; margin-right:0; }
 .talk-page .talk-meta { color:var(--color-text-light); }
+
+.intro-page { max-width:760px; }
+.intro-page p { text-align:left; max-width:none; margin-left:0; margin-right:0; margin-bottom:1.1rem; }
+.intro-page h2 { color:var(--color-primary); font-size:1.2rem; margin:2rem 0 0.6rem; text-align:left; }
+.intro-page .intro-keywords { background:var(--color-background-alt); border-radius:8px; padding:1rem 1.25rem; font-size:0.95rem; line-height:1.9; }
+.intro-page ol.intro-sources { padding-left:1.4rem; margin-top:0.5rem; }
+.intro-page ol.intro-sources li { padding:0.2rem 0; font-size:0.9rem; color:var(--color-text-light); }
+.intro-page ol.intro-sources li a { color:var(--color-accent); overflow-wrap:anywhere; }
 
 @media (max-width:600px) {
     .schedule .session { width:auto; }
