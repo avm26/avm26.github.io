@@ -79,7 +79,7 @@ Martin Farkas, Dr. Imre Kocsis
 **15:00-15:30 · Coffee break**
 
 ## Research session (afternoon) - Embedded- and Real-Time Systems
-**When:** Tuesday, 15:30-17:00  ·  **Chair:** Levente Bajczi
+**When:** Tuesday, 15:30-16:30  ·  **Chair:** Levente Bajczi
 
 ### Bridging testing and formal methods: equivalence detection and test generation for mutation testing in PLC software
 *short*
@@ -90,32 +90,6 @@ Andrada Alexia Serban
 *BME, Budapest*
 
 Andrada Alexia Serban
-
-### Synthesizing Environment Assumptions for Coordinated Components
-*long*
-
-The formal verification of safety-critical systems requires not only a model of the system under design but also a set of environmental assumptions, i.e., a description of what the environment of the system can and cannot do. In engineering practice, however, these assumptions typically remain implicit "mental" models of the engineers, and as a result, model checking an otherwise correct design against an unconstrained environment often yields violation traces that are deemed unrealistic by engineers. Making these assumptions explicit is therefore an essential part of the verification process, which is usually done by manually creating environment models.
-
-Our approach builds on the coordination automata formalism, which describes the scheduling and the interaction of the components of a distributed system. In addition, the coordination automata can also express what is assumed of the environment and what is asserted of the executed component at each step, which makes modeling environmental assumptions possible. However, it remains the task of the engineer to formulate these assumptions, which is a challenging problem in itself: an assumption that is too strong potentially hides the very failures the system is designed to tolerate, whereas one that is too weak may not be sufficient to guarantee the assertion.
-
-In this talk, we present a symbolic adaptation of the environment assumption synthesis of Chatterjee, Henzinger and Jobstmann (CONCUR 2008) for synthesizing parts of the environment model from LTL formulas describing what is assumed of the environment and asserted from the executed component. We demonstrate the applicability of our approach on the Road Wheel Actuator (RWA) of a steer-by-wire system.
-
-Richárd Szabó
-*BME, Budapest*
-
-Richárd Szabó
-
-### Unified Timing-Aware Program Verification
-*long*
-
-Three complementary verification approaches exist for real-time concurrent programs: (i) Timed Automata (TA) model checkers reason rigorously about timing but cannot express C’s memory model and synchronization primitives. (ii) Program verifiers handle advanced language features but ignore timing, producing spurious errors when timing makes races impossible. (iii) Worst-Case Execution Time (WCET) analyzers bound execution time but cannot verify safety properties.
-We present a vision for timing-aware program verification and propose a workflow that integrates: (i) TA semantics, (ii) existing C program verifier capabilities, and (iii) WCET timing estimates. We identify three key research challenges and demonstrate feasibility through a prototype implementation in the Theta software model checker. Our prototype demonstrates the potential to eliminate false positives from timing-infeasible scenarios and verify real-time properties previously impossible to express in C program verifiers.
-This talk is an extended version of the one previously presented at FASE 2026.
-
-Dóra Cziborová
-*BME, Budapest*
-
-Dóra Cziborová, Mihály Dobos-Kovács, Kristóf Marussy, András Vörös
 
 ### A Symbolic Execution Framework for Symbolic Timing Analysis of Digital Integrated Circuits
 *short*
@@ -128,6 +102,18 @@ Dennis Eigner
 *TU Wien*
 
 Dennis Eigner, Arman Ferdowsi, Ulrich Schmid
+
+### Unified Timing-Aware Program Verification
+*long*
+
+Three complementary verification approaches exist for real-time concurrent programs: (i) Timed Automata (TA) model checkers reason rigorously about timing but cannot express C’s memory model and synchronization primitives. (ii) Program verifiers handle advanced language features but ignore timing, producing spurious errors when timing makes races impossible. (iii) Worst-Case Execution Time (WCET) analyzers bound execution time but cannot verify safety properties.
+We present a vision for timing-aware program verification and propose a workflow that integrates: (i) TA semantics, (ii) existing C program verifier capabilities, and (iii) WCET timing estimates. We identify three key research challenges and demonstrate feasibility through a prototype implementation in the Theta software model checker. Our prototype demonstrates the potential to eliminate false positives from timing-infeasible scenarios and verify real-time properties previously impossible to express in C program verifiers.
+This talk is an extended version of the one previously presented at FASE 2026.
+
+Dóra Cziborová
+*BME, Budapest*
+
+Dóra Cziborová, Mihály Dobos-Kovács, Kristóf Marussy, András Vörös
 
 ---
 

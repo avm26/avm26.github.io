@@ -15,7 +15,7 @@
 <div class="container">
 <a class="back-link" href="program.html">&larr; Back to program</a>
 <h1>Embedded- and Real-Time Systems</h1>
-<p class="subtitle">Session introduction &middot; Tuesday, 15:30-17:00 &middot; Chair: Levente Bajczi</p>
+<p class="subtitle">Session introduction &middot; Tuesday, 15:30-16:30 &middot; Chair: Levente Bajczi</p>
 </div>
 </header>
 <main>
@@ -26,10 +26,7 @@
 <p>One widely used embedded controller is the <em>programmable logic controller (PLC)</em>, an industrial computer that runs its program in a repeating scan cycle [1]. For such control code, engineers rely mostly on <em>dynamic testing</em>, which runs the program on chosen inputs, while formal methods can add proofs that cover every input. <em>Mutation testing</em> measures how good a test suite is. It injects small faults, called <em>mutants</em>, and checks whether the tests catch them, so a mutant that survives every test marks a gap in the suite [2]. Some mutants are <em>equivalent</em>, meaning they change the code but not its behaviour, so no test can ever catch them, and finding these automatically is hard [2]. A model checker can help on both sides, by generating tests for surviving mutants and by identifying equivalent ones [3].</p>
 
 <p>Timing is a first-class concern in this session. A <em>real-time system</em> must be correct and on time, because a late answer can count as a wrong one, and a hard deadline must never be missed [4]. <em>Timed Automata</em> are the standard model for such systems: state machines extended with clocks, which a tool can then check automatically [5]. A separate analysis, <em>worst-case execution time (WCET)</em>, computes a safe upper bound on how long a piece of code can run [6]. These concerns are usually handled apart, because a program verifier tends to ignore time while a timing model tends to ignore the program's memory and synchronisation, so merging them into one analysis is hard [6]. Timing also matters in hardware. In a <em>digital circuit</em>, a signal takes time to pass through each gate, and <em>timing analysis</em> predicts when the outputs settle [7]. Rather than simulate one input pattern at a time, <em>symbolic execution</em> explores many input orderings together using symbolic values [8, 9]. This is powerful, but it produces a combinatorial explosion of cases that such methods must prune.</p>
-
-<p>A final question is what a component may assume about its surroundings. If we verify a component against an environment that is allowed to do anything, the checker often reports failures that could never happen in practice. The remedy is to state <em>environment assumptions</em> explicitly, in an <em>assume-guarantee</em> style: we assume some behaviour of the environment, and in return guarantee some behaviour of the component [10]. Such assumptions can be written in <em>linear temporal logic (LTL)</em>, a logic for describing how a system should behave over time [11]. Writing good assumptions by hand is difficult, so recent work synthesizes them automatically [10].</p>
-
-<p class="intro-keywords"><strong>Keywords to look up:</strong> embedded system &middot; programmable logic controller (PLC) &middot; safety-critical &middot; dynamic testing &middot; mutation testing &middot; equivalent mutant &middot; test generation &middot; model checking &middot; real-time system &middot; deadline &middot; Timed Automata &middot; clock &middot; worst-case execution time (WCET) &middot; environment assumption &middot; assume-guarantee &middot; linear temporal logic (LTL) &middot; assumption synthesis &middot; digital circuit &middot; gate delay &middot; symbolic execution &middot; combinatorial explosion.</p>
+<p class="intro-keywords"><strong>Keywords to look up:</strong> embedded system &middot; programmable logic controller (PLC) &middot; safety-critical &middot; dynamic testing &middot; mutation testing &middot; equivalent mutant &middot; test generation &middot; model checking &middot; real-time system &middot; deadline &middot; Timed Automata &middot; clock &middot; worst-case execution time (WCET) &middot; digital circuit &middot; gate delay &middot; symbolic execution &middot; combinatorial explosion.</p>
 
 <h2>Sources</h2>
 <ol class="intro-sources">
@@ -41,10 +38,7 @@
 <li>R. Wilhelm et al. "The Worst-Case Execution-Time Problem - Overview of Methods and Survey of Tools." <em>ACM Trans. Embedded Computing Systems</em>, 2008. <a href="https://doi.org/10.1145/1347375.1347389" target="_blank" rel="noopener">doi.org/10.1145/1347375.1347389</a></li>
 <li>J. Bhasker, R. Chadha. <em>Static Timing Analysis for Nanometer Designs.</em> Springer, 2009. <a href="https://doi.org/10.1007/978-0-387-93820-2" target="_blank" rel="noopener">doi.org/10.1007/978-0-387-93820-2</a></li>
 <li>J. C. King. "Symbolic Execution and Program Testing." <em>Communications of the ACM</em>, 1976. <a href="https://doi.org/10.1145/360248.360252" target="_blank" rel="noopener">doi.org/10.1145/360248.360252</a></li>
-<li>R. Baldoni, E. Coppa, D. C. D'Elia, C. Demetrescu, I. Finocchi. "A Survey of Symbolic Execution Techniques." <em>ACM Computing Surveys</em>, 2018. <a href="https://doi.org/10.1145/3182657" target="_blank" rel="noopener">doi.org/10.1145/3182657</a></li>
-<li>K. Chatterjee, T. A. Henzinger, B. Jobstmann. "Environment Assumptions for Synthesis." <em>CONCUR</em>, 2008. <a href="https://doi.org/10.1007/978-3-540-85361-9_14" target="_blank" rel="noopener">doi.org/10.1007/978-3-540-85361-9_14</a></li>
-<li>A. Pnueli. "The Temporal Logic of Programs." <em>FOCS</em>, 1977. <a href="https://doi.org/10.1109/SFCS.1977.32" target="_blank" rel="noopener">doi.org/10.1109/SFCS.1977.32</a></li>
-</ol>
+<li>R. Baldoni, E. Coppa, D. C. D'Elia, C. Demetrescu, I. Finocchi. "A Survey of Symbolic Execution Techniques." <em>ACM Computing Surveys</em>, 2018. <a href="https://doi.org/10.1145/3182657" target="_blank" rel="noopener">doi.org/10.1145/3182657</a></li></ol>
 </div>
 </section>
 </main>
