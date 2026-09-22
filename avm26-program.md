@@ -125,7 +125,11 @@ Dóra Cziborová, Mihály Dobos-Kovács, Kristóf Marussy, András Vörös
 ### Combining formal verification algorithms
 *short*
 
-TBA
+Model checking is a formal verification technique that exhaustively explores all possible behaviors of a system to prove correctness or detect errors. Two prominent approaches are Complementary Approximate Reachability (CAR), which simultaneously tightens over- and under-approximations of reachable states, and Counterexample-Guided Abstraction Refinement (CEGAR), which iteratively refines a coarse abstraction until the property can be decided.
+
+Implicit abstraction allows wrapping any reachability algorithm in a CEGAR loop, but discards all intermediate results upon each refinement.
+
+In this paper, we propose CARCEGAR, an algorithm that wraps CAR in an implicit CEGAR loop while preserving partial results across refinement iterations. We unify the underapproximation tree of CAR with the abstract reachability graph of CEGAR into a single structure, enabling lazy pruning to retain useful state-space information between iterations. We implemented the algorithm in the open-source Theta model checker and evaluated it on industrial hardware models from the Hardware Model Checking Competition, where it showed promising results.
 
 Dániel Kovács
 *BME, Budapest*
