@@ -277,7 +277,7 @@ Péter Bereczky
 ### A Unified Evaluation of Translation and Algorithmic Impacts in Hardware Verification
 *short*
 
-TBA
+Formal verification is essential for ensuring system correctness, with BTOR2 serving as the standard word-level format for bit-precise hardware model checking. Recent approaches bridge hardware and software verification by translating BTOR2 designs into C programs to exploit mature software analyzers. Notably, tools like CPAchecker have demonstrated that software verifiers can detect bugs that state-of-the-art hardware checkers miss. However, routing designs through an intermediate C representation adds syntactic overhead, distorts native bit-vector semantics, and risks translation defects. Furthermore, evaluating across entirely separate tools makes fair comparisons difficult, as it is hard to separate fundamental algorithmic strengths from tool-specific engineering tricks. To isolate these effects, we implement a direct BTOR2 frontend within the generic Theta model checking framework, converting hardware models directly into Control Flow Automata (CFAs). This native mapping preserves bit-precise SMT semantics and hardware loop structures without extra layers. Leveraging Theta’s unified infrastructure for both hardware and C models, we evaluate HWMCC benchmarks under identical algorithmic conditions, revealing how direct versus indirect transformations truly impact verification performance.
 
 Éva Mária Szabó
 *BME, Budapest*
