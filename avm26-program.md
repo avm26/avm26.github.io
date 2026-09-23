@@ -237,7 +237,7 @@ Roland Graf
 
 Philipp Rümmer, Roland Graf
 
-### Z3-Nooder and Mata: String Solving with Stabilization and Transducers
+### Z3-Noodler and Mata: String Solving with Stabilization and Transducers
 *short*
 
 We generalize an efficient automata-based approach to string solving, the stabilization-based method behind the solver Z3-Noodler, to support relational constraints represented by finite-state transducers (useful for modeling replaceAll constraints, etc.). We focus on efficient handling of length constraints by reducing the need for expensive concatenation elimination, a major bottleneck in automata-based string solving. We also propose heuristics that significantly improve performance in practice. Implemented on top of Z3-Noodler, our method clearly outperforms other solvers on benchmarks with relational constraints: it solves more instances and runs orders of magnitude faster.
