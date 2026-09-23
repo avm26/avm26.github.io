@@ -32,7 +32,10 @@
 <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photo">&#8249;</button>
 <img class="lightbox-img" src="" alt="">
 <button class="lightbox-nav lightbox-next" type="button" aria-label="Next photo">&#8250;</button>
-<div class="lightbox-counter"></div>
+<div class="lightbox-bar">
+<span class="lightbox-counter"></span>
+<a class="lightbox-original" href="" target="_blank" rel="noopener">View original &#8599;</a>
+</div>
 </div>
 
 <footer><div class="container footer-inner"><p>AVM'26 &middot; Alpine Verification Meeting &middot; 22-24 September 2026 &middot; Eger, Hungary</p></div></footer>
@@ -71,12 +74,14 @@
     var lb = document.getElementById('lightbox');
     var lbImg = lb.querySelector('.lightbox-img');
     var counter = lb.querySelector('.lightbox-counter');
+    var original = lb.querySelector('.lightbox-original');
     var current = 0;
 
     function render() {
         lbImg.src = 'photos/' + photos[current];
         lbImg.alt = "AVM'26 photo " + (current + 1);
         counter.textContent = (current + 1) + ' / ' + photos.length;
+        original.href = 'photos/' + photos[current];
     }
     function open(i) {
         current = i;
