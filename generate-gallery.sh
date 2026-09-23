@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 #
-# Regenerate the photo gallery manifest.
-# Run this after you add or remove images in the photos/ directory:
+# Prepare the photo gallery. Run this after you add or remove images in the
+# photos/ directory:
 #
 #     ./generate-gallery.sh
 #
-# It writes photos/manifest.js, which gallery.html reads to build the grid.
+# It does two jobs:
+#
+#   1. Flattens Pixel "Ultra HDR" photos to plain SDR (see below).
+#   2. Writes photos/manifest.js, the list gallery.html reads to build the grid.
+#
 # The manifest is a plain .js file (not JSON) on purpose, so the gallery also
 # works when you open gallery.html straight from disk (file://), no web server.
 
@@ -22,6 +26,43 @@ if [ ! -d "$photos_dir" ]; then
     exit 1
 fi
 
+# --- 1. Flatten Pixel "Ultra HDR" photos to plain SDR -------------------------
+# Pixel phones save JPEGs that carry a hidden HDR "gain map" as a second image
+# inside the file. HDR-aware browsers apply that map and push bright areas
+# (e.g. projected slides) toward white, while local image viewers ignore it - so
+# the web copy looks lighter than the original. We remove the gain map with
+# jpegtran, which does NOT re-compress: the visible pixels stay identical, only
+# the gain map and metadata are dropped. This runs only on files that still
+# carry a gain map, so re-running it is safe and leaves already-flat files alone.
+if command -v jpegtran >/dev/null && command -v exiftool >/dev/null; then
+    flattened=0
+    shopt -s nullglob
+    for img in "$photos_dir"/*.jpg "$photos_dir"/*.jpeg "$photos_dir"/*.JPG "$photos_dir"/*.JPEG; do
+        # A gain map means the JPEG holds more than one image (NumberOfImages > 1).
+        count=$(exiftool -s3 -NumberOfImages "$img" 2>/dev/null || true)
+        if [ -z "$count" ] || ! [ "$count" -gt 1 ] 2>/dev/null; then
+            continue
+        fi
+        tmp=$(mktemp --tmpdir="$photos_dir" .flatten.XXXXXX.jpg)
+        if jpegtran -copy none "$img" > "$tmp" 2>/dev/null && [ -s "$tmp" ]; then
+            mv "$tmp" "$img"
+            flattened=$((flattened + 1))
+            echo "Flattened Ultra HDR -> SDR: $(basename "$img")"
+        else
+            rm -f "$tmp"
+            echo "warning: could not flatten $(basename "$img")" >&2
+        fi
+    done
+    shopt -u nullglob
+    if [ "$flattened" -eq 0 ]; then
+        echo "No Ultra HDR photos to flatten."
+    fi
+else
+    echo "note: jpegtran and/or exiftool not found - skipping HDR flatten." >&2
+    echo "      install both to auto-fix Pixel Ultra HDR photos." >&2
+fi
+
+# --- 2. Write the gallery manifest -------------------------------------------
 # Collect image files (case-insensitive extensions), sorted by name.
 # The PXL_* filenames from Pixel phones sort chronologically, which is the
 # order we want photos to appear in.
