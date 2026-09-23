@@ -636,7 +636,9 @@ table.schedule { width:100%; border-collapse:collapse; background:var(--color-wh
 .gallery-item:focus img { transform:scale(1.05); }
 .gallery-item:focus { outline:3px solid var(--color-accent); outline-offset:2px; }
 .gallery-empty { text-align:center; color:var(--color-text-light); font-style:italic; }
-.gallery-credit { text-align:center; color:var(--color-text-light); font-size:0.9rem; margin-top:2.5rem; }
+.gallery-credit { text-align:center; color:var(--color-text-light); font-size:0.9rem; margin-top:2.5rem; margin-bottom:0.4rem; }
+.gallery-license { text-align:center; color:var(--color-text-light); font-size:0.8rem; margin-top:0; }
+.gallery-license a { color:inherit; text-decoration:underline; }
 
 /* Lightbox */
 .lightbox {
