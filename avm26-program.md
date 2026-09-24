@@ -305,12 +305,12 @@ Csanád Telbisz
 
 ### Refinery: A graph solver for generating models
 
-TBA
+Various software and systems engineering scenarios rely on the systematic construction of consistent graph models. However, automatically generating a diverse set of consistent graph models for complex domain specifications is challenging. First, the graph generation problem must be specified with mathematical precision. Moreover, graph generation is a computationally complex task, which necessitates specialized logic solvers. Refinery is a novel open-source software framework to automatically synthesize a diverse set of consistent domain-specific graph models. Refinery offers an expressive high-level specification language using partial models to succinctly formulate a wide range of graph generation challenges. Moreover, it provides a modern cloud-based architecture for a scalable graph solver as a service, which uses logic reasoning rules to efficiently synthesize a diverse set of solutions to graph generation problems by partial model refinement. Applications include system-level architecture synthesis, test generation for modeling tools or traffic scenario synthesis for autonomous vehicles.
 
 Oszkár Semeráth
 *BME, Budapest*
 
-TBA
+Refinery authors
 
 **12:30-14:00 · Lunch**
 
