@@ -21,6 +21,9 @@
 <main>
 <section class="section">
 <div class="container gallery-page">
+<figure id="gallery-featured" class="gallery-featured" tabindex="0" role="button" aria-label="Open group photo of AVM'26 participants in front of Hotel Korona, Eger, 24 September 2026">
+<img src="photos/group/group-photo.jpg" alt="Group photo of AVM'26 participants in front of Hotel Korona, Eger, 24 September 2026" width="2525" height="1901">
+</figure>
 <div id="gallery" class="gallery-grid" aria-live="polite"></div>
 <p id="gallery-empty" class="gallery-empty" hidden>No photos yet - check back soon.</p>
 <p class="gallery-credit">Photos by Levente Bajczi</p>
@@ -45,31 +48,42 @@
 <script src="photos/manifest.js"></script>
 <script>
 (function () {
-    var photos = window.GALLERY_PHOTOS || [];
+    var names = window.GALLERY_PHOTOS || [];
     var grid = document.getElementById('gallery');
     var empty = document.getElementById('gallery-empty');
+    var featured = document.getElementById('gallery-featured');
+    var featuredImg = featured.querySelector('img');
 
-    if (!photos.length) {
-        empty.hidden = false;
-        return;
+    // The group photo leads the lightbox sequence, followed by the grid photos.
+    var photos = [{ src: featuredImg.getAttribute('src'), alt: featuredImg.alt }];
+    names.forEach(function (name, i) {
+        photos.push({ src: 'photos/' + name, alt: "AVM'26 photo " + (i + 1) });
+    });
+
+    function bindOpen(el, i) {
+        el.addEventListener('click', function () { open(i); });
+        el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+        });
     }
 
-    photos.forEach(function (name, i) {
+    bindOpen(featured, 0);
+
+    if (!names.length) empty.hidden = false;
+
+    names.forEach(function (name, i) {
         var fig = document.createElement('figure');
         fig.className = 'gallery-item';
         fig.tabIndex = 0;
         fig.setAttribute('role', 'button');
-        fig.setAttribute('aria-label', 'Open photo ' + (i + 1) + ' of ' + photos.length);
+        fig.setAttribute('aria-label', 'Open photo ' + (i + 1) + ' of ' + names.length);
         var img = document.createElement('img');
-        img.src = 'photos/' + name;
-        img.alt = "AVM'26 photo " + (i + 1);
+        img.src = photos[i + 1].src;
+        img.alt = photos[i + 1].alt;
         img.loading = 'lazy';
         img.decoding = 'async';
         fig.appendChild(img);
-        fig.addEventListener('click', function () { open(i); });
-        fig.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
-        });
+        bindOpen(fig, i + 1);
         grid.appendChild(fig);
     });
 
@@ -80,10 +94,10 @@
     var current = 0;
 
     function render() {
-        lbImg.src = 'photos/' + photos[current];
-        lbImg.alt = "AVM'26 photo " + (current + 1);
+        lbImg.src = photos[current].src;
+        lbImg.alt = photos[current].alt;
         counter.textContent = (current + 1) + ' / ' + photos.length;
-        original.href = 'photos/' + photos[current];
+        original.href = photos[current].src;
     }
     function open(i) {
         current = i;
