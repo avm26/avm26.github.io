@@ -611,6 +611,15 @@ table.schedule { width:100%; border-collapse:collapse; background:var(--color-wh
 
 /* === photo gallery === */
 .gallery-page { max-width:1100px; }
+.gallery-featured {
+    margin:0 0 2.5rem;
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+}
+.gallery-featured img { width:100%; height:auto; display:block; }
+.gallery-featured:focus { outline:3px solid var(--color-accent); outline-offset:2px; }
 .gallery-grid {
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
